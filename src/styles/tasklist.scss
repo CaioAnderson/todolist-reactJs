@@ -1,0 +1,217 @@
+.task-list {
+    height: 100vh;
+    width: 70%;
+
+    background-color: var(--background);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 100%;
+
+    h3 {
+        color: var(--st-patricks-blue);
+        font-size: 1.25rem;
+        margin-top: 0.1rem;
+    }
+
+    section {
+        width: 31.25rem;
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            width: 100%;
+
+            font-size: 16px;
+
+            input {
+                width: 25rem;
+                border: 1;
+                border-color: #000;
+                padding: 12px 24px;
+
+                border-radius: 8px;
+                border: 0;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 25rem;
+                font-weight: 600;
+                border-radius: 8px;
+                border: 0;
+                background: var(--st-patricks-blue);
+                color: #fff;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                padding: 14px;
+                transition: filter 0.2s;
+
+                &:hover {
+                    filter: brightness(0.95);
+                }
+            }
+        }
+    }
+
+    main {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+            list-style: none;
+            width: 50rem;
+
+            .empty {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h2 {
+                    font-size: 1rem;
+                }
+            }
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--background);
+                padding: 1rem 0;
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    outline: 0;
+
+                    &.completed {
+                        p {
+                            text-decoration: line-through;
+                            opacity: 0.6;
+                        }
+                    }
+
+                    .checkbox-container {
+                        display: block;
+                        position: relative;
+                        padding-left: 14px;
+                        margin-bottom: 18px;
+
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0;
+
+                            &:checked {
+                                & ~ .checkmark {
+                                    background-color: var(--st-patricks-blue);
+                                }
+
+                                & ~ .checkmark:after {
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        .checkmark {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 16px;
+                            height: 16px;
+                            background-color: #f4cb89;
+                            border-radius: 2px;
+
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                display: none;
+                                left: 6px;
+                                top: 3px;
+                                width: 3px;
+                                height: 6px;
+                                border: solid white;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    background: transparent;
+                    border: 0;
+
+                    svg {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        svg {
+                            filter: brightness(0.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .add-todo-list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        margin-right: 1.25rem;
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: transparent;
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+            padding: 0.625rem;
+
+            &:hover {
+                background-color: var(--st-patricks-blue);
+                box-shadow: 0px 15px 20px rgba(36, 47, 115, 0.4);
+                color: #fff;
+                transform: translateY(-7px);
+            }
+
+            svg {
+                color: var(--st-patricks-blue);
+                transition: all 0.3s ease 0s;
+
+                &:hover {
+                    color: var(--background);
+                }
+            }
+        }
+    }
+}
